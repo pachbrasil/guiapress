@@ -4,7 +4,7 @@
 # I can say that, this course made me understand many knowlegde.
 # Before I start, I didn't know almost nothing 
 # Even system routing, controllers, models, views.
-# I stopped programmin for 15 years, so this names are really new for me.
+# I stopped programmin for 15 years, so these names are really new for me.
 # But Everyday, I am learning more and more.
 # Even the simple Bootstrap, I feel so usefull, don't know why some front-enders
 # are complaing about that.
