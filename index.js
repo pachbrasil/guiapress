@@ -4,3 +4,4 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const Sequelize = require('sequelize');
+const bodyParser = require('body-parser');
