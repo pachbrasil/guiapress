@@ -1,6 +1,6 @@
 # This is a repository for my lesson learning.
 # I am learning node.js right now, and this repository 
-# is the coding of the 2 lesson, on Udemy.
+# is the coding of the 2nd lesson, on Udemy.
 # I can say that, this course made me understand many knowlegde.
 # Before I start, I didn't know almost nothing 
 # Even system routing, controllers, models, views.
