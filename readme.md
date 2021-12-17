@@ -12,3 +12,8 @@
 # Hope that I still gonna enjoy for more coding here. Github is new for me too.
 # If you're watching me writing. Thank you.  Any comments, please leave some follow.
 # (req, res)=> { Thank you; };
+
+# Before starting to program. First you need to star the NPM to get the json's files, and all directories by default.
+# Here is the command:
+npm init 
+
