@@ -10,3 +10,8 @@ that's all for now.
 
 # Lets start here:
 ## For VIEWS:     "folder1/.../viewFile"
+
+
+## Special EJS command:
+### for print use <%= %>
+### for print in html format <%- %>
