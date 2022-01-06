@@ -1,10 +1,9 @@
-const express = require('express');
-const Sequelize = require('sequelize');
+const Sequelize =require("sequelize");
 
-const connection = new Sequelize('guiaprex', 'root', ''{
-	host: 'localhost',
-	dialect: 'mysql'
+const connection = new Sequelize('guiapress', 'root', 'coracao27M', {
+    host: 'localhost',
+    dialect: 'mysql', 
+    timezone: '-03:00'
 });
 
-
-module.export = connection;
+module.exports = connection;
