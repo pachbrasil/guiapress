@@ -3,6 +3,7 @@ const router = express.Router();
 const Category = require('../categories/Category');
 const Article = require('./Article');
 const slugify = require('slugify');
+const { append } = require('express/lib/response');
 
 router.get("/admin/articles", (req, res) => {
     Article.findAll(
@@ -50,5 +51,66 @@ router.post("/articles/delete", (req, res) => {
     };
 });
 
+router.get("/admin/articles/edit/:id", (req, res) => {
+    var id = req.params.id; 
+    //tem que puxar o "artigo unico" e "todas as categorias" 
+    Category.findAll().then(categories => {
+        Article.findByPk(id).then(article=> {
+            res.render("admin/articles/edit", { categories: categories, article: article });
+        });
+    });
+});
 
+router.post("/articles/update", (req, res) => {
+    var id = req.body.id;
+    var title = req.body.title;
+    var body = req.body.body; 
+    var category = req.body.category;
+
+    Article.update({title: title, body: body, categoryId: category, slug: slugify(title)}, {
+        where: {
+            id: id 
+        }
+    }).then(() => {
+        res.redirect("/admin/articles");
+    }).catch(err => {
+        res.redirect("/");
+    })
+});
+
+router.get("/articles/page/:num", (req, res) => {
+    var page = req.params.num; 
+    var offset = 0; 
+
+    if (isNaN(page) || page == 1) {
+        offset = 0; 
+    }else{
+        offset = (parseInt(page)-1) * 4;
+    };
+
+    Article.findAndCountAll({
+        limit: 4,
+        offset: offset    //Retornar dados apartir de um valor.
+    }).then( articles => {
+
+        var next; 
+        if (offset + 4 >= articles.count){
+            next = false;
+        }else{
+            next = true; 
+        }
+
+        var result = {
+            page: parseInt(page),
+            next: next, 
+            articles: articles
+        }; 
+
+        Category.findAll().then(categories => {
+            res.render("admin/articles/page", { result: result, categories: categories});
+        })
+    }
+
+    )
+});
 module.exports = router;
